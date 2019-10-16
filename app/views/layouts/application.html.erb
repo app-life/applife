@@ -5,11 +5,25 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
+  <% if admin_signed_in? %>
+    <%= render 'layouts/admin_header' %>
+  <% elsif user_signed_in? %>
+    <%= render 'layouts/login_header' %>
+  <% else %>
+    <%= render 'layouts/not_login_header' %>
+  <% end %>
+    <%= link_to 'logout_user',destroy_user_session_path,method: :delete %>
+    <%= link_to 'logout_admin',destroy_admin_session_path,method: :delete %>
     <%= yield %>
+
+    <div class="footer-text">
+    <footer>
+    </footer>
+  </div>
   </body>
 </html>
