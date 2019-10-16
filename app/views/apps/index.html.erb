@@ -1,0 +1,23 @@
+<div class="container">
+ <div class="row">
+        <% @apps.each do |app| %>
+  <%= link_to app_path(app.id) do%>
+  <div class="col-md-4">
+      <p><%= attachment_image_tag app, :image, :fill, 100, 100, format: 'jpeg' %></p>
+      <p><%= app.price_category == 0 ? "無料" : "有料"%></p>
+  </div>
+
+  <div class="col-md-8">
+      <p><%= app.title%></p>
+      <p><%= app.body%></p>
+      <p><%= app.image %></p>
+      <p><%= app.os_category == 0 ? "iOS" : "macOS" %></p>
+      <p><%= markdown(app.body).html_safe %></p>
+      <p>aaaaa</p>
+      <p><%= app.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
+  </div>
+    <% end %>
+
+  <% end %>
+ </div>
+</div>

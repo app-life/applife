@@ -1,0 +1,15 @@
+<header>
+  <div class="container" style="background-color: black;">
+    <nav>
+    <%= link_to admins_path do%>
+    <h2>applife管理者メニュー</h2>
+    <% end %>
+    </nav>
+    <nav>
+      <ul class="nav navbar-nav navbar-left">
+          <li><%= link_to " Top ", admins_path ,:style=>"color:white;" %></li>
+          <li><%= link_to " logout ", destroy_admin_session_path, method: :delete ,:style=>"color:white;" %></li>
+      </ul>
+    </nav>
+  </div>
+ </header>

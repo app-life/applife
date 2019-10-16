@@ -9,7 +9,9 @@ class CreateApps < ActiveRecord::Migration[5.2]
       t.integer :price
       t.text :jacket_image_id
       t.datetime :updated_at
-
+      t.string :title
+      t.text :body
+      t.string :image_id
       t.timestamps
     end
   end
