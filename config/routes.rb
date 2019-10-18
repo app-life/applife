@@ -14,6 +14,9 @@ devise_for :users, controllers: {
   get '/apps/about' => 'apps#about'
   resources :apps
   resources :images
+  resources :contacts, only: [:new]
+  get '/os_category/:category', to: 'apps#os_category', as: :os_category
+  get '/price_category/:category', to: 'apps#price_category', as: :price_category
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   #ルートURL
