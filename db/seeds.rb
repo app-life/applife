@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+25.times do
+        App.create(os_category: "iOS", price_category: "無料")
+        App.create(os_category: "iOS", price_category: "有料")
+        App.create(os_category: "macOS", price_category: "無料")
+        App.create(os_category: "macOS", price_category: "有料")
+end

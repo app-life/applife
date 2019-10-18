@@ -1,1 +1,21 @@
-aaa
+<div class="container">
+ <div class="row">
+        <% @apps.each do |app| %>
+  <%= link_to admins_app_path(app.id) do%>
+  <div class="col-md-4">
+      <p><%= attachment_image_tag app, :image, :fill, 100, 100, format: 'jpeg' %></p>
+      <p><%= app.price_category %></p>
+  </div>
+
+  <div class="col-md-8">
+      <p><%= app.title%></p>
+      <p><%= app.body%></p>
+      <p><%= app.image %></p>
+      <p><%= app.os_category %></p>
+      <p><%= app.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
+  </div>
+    <% end %>
+
+  <% end %>
+ </div>
+</div>

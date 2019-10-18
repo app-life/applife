@@ -1,7 +1,6 @@
 class AppsController < ApplicationController
 
     def index
-        @apps = App.all
     end
 
 
@@ -17,14 +16,22 @@ class AppsController < ApplicationController
 
     def show
         @app = App.find(params[:id])
-        @apps = App.all
+        # @apps = App.all
     end
 
     def about
     end
 
+    def os_category
+        @apps = App.where(os_category: params[:category] )
+    end
+
+    def price_category
+        @apps = App.where(price_category: params[:category])
+    end
+
     private
     def app_params
-      params.require(:app).permit(:title, :body, :image)
+      params.require(:app).permit(:title, :body, :image, :genre, :price, :price_category, :os_category)
     end
 end
