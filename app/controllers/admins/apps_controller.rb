@@ -1,9 +1,8 @@
 class Admins::AppsController < ApplicationController
 
     def index
-        @apps = App.all
-        @q = Person.ransack(params[:q])
-        @people = @q.result(distinct: true)
+        @q = App.ransack(params[:q])
+        @app = @q.result(distinct: true)
     end
 
     def create

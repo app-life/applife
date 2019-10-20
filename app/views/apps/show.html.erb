@@ -8,6 +8,16 @@
         <% else %>
          <p>記事の内容が記載されていません。</p>
         <% end %>
+         <strong>閲覧数:</strong>
+         <%= @app.impressions_count %>
         </div>
+        <p><%= form_for [@app, @post_comment] do |f| %>
+           <%= f.text_field :comment %>
+           <%= f.submit 'コメントする'%>
+           <% end %></p>
+        <% @post_comments.each do |comment|%>
+            <p><%= comment.comment %></p>
+        <% end %>
+
     </div>
 </div>

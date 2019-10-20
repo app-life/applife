@@ -1,1 +1,18 @@
-aaaaa
+<div class="row">
+    <table class="table">
+        <tr>
+            <th>タイトル</th>
+            <th>メールアドレス</th>
+            <th>問い合わせ内容</th>
+            <th>日時</th>
+        </tr>
+        <% @contacts.each do |contact| %>
+        <tr onclick="location.href='<%= admins_contact_path(contact.id) %>'">
+            <td><%= contact.title %></td>
+            <td><%= contact.mail %></td>
+            <td><%= contact.body %></td>
+            <td><%= contact.updated_at.strftime("%Y-%m-%d %H:%M") %></td>
+        </tr>
+        <% end %>
+    </table>
+</div>

@@ -1,6 +1,7 @@
 class AppsController < ApplicationController
 
     def index
+        @most_viewed = App.order('impressions_count DESC').take(3)
     end
 
 
@@ -16,7 +17,9 @@ class AppsController < ApplicationController
 
     def show
         @app = App.find(params[:id])
-        # @apps = App.all
+        impressionist(@app, nil, :unique => [:session_hash])
+        @post_comments = PostComment.all
+        @post_comment = PostComment.new({app:@app})
     end
 
     def about
@@ -32,6 +35,6 @@ class AppsController < ApplicationController
 
     private
     def app_params
-      params.require(:app).permit(:title, :body, :image, :genre, :price, :price_category, :os_category)
+      params.require(:app,).permit(:title, :body, :image, :genre, :price, :price_category, :os_category)
     end
 end

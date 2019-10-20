@@ -17,8 +17,6 @@
   <% else %>
     <%= render 'layouts/not_login_header' %>
   <% end %>
-    <%= link_to 'logout_user',destroy_user_session_path,method: :delete %>
-    <%= link_to 'logout_admin',destroy_admin_session_path,method: :delete %>
     <%= yield %>
 
     <div class="footer-text">

@@ -13,3 +13,10 @@
         App.create(os_category: "macOS", price_category: "無料")
         App.create(os_category: "macOS", price_category: "有料")
 end
+
+# 20.times do |no|
+#   App.create(
+#       :app_id => "app #{no}",
+#       :impressions_count => "#{rand(80)} "
+#   )
+# end
