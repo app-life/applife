@@ -31,6 +31,7 @@ devise_for :users, controllers: {
     resources :apps
     resources :contacts, only: [:index, :show, :destroy]
     post 'apps' => 'apps#create'
+  resources :commentcheck, only: [:index, :show, :update]
 
   end
 end

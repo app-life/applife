@@ -1,0 +1,2 @@
+class Commentcheck < ApplicationRecord
+end

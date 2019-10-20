@@ -15,9 +15,14 @@
            <%= f.text_field :comment %>
            <%= f.submit 'コメントする'%>
            <% end %></p>
-        <% @post_comments.each do |comment|%>
-            <p><%= comment.comment %></p>
-        <% end %>
+         <% @post_comments.each do |comment|%>
+              <% if comment.approval == false %>
+                <p>コメント承認まちです</p>
+                <% else %>
+                <%= comment.comment%>
+              <% end %>
+         <% end %>
+
 
     </div>
 </div>

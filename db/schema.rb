@@ -10,15 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_20_084355) do
-
-  create_table "administrators", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "encryped_password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 2019_10_20_102630) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -53,6 +45,11 @@ ActiveRecord::Schema.define(version: 2019_10_20_084355) do
     t.integer "price_category"
     t.integer "os_category"
     t.integer "impressions_count"
+  end
+
+  create_table "commentchecks", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -111,12 +108,11 @@ ActiveRecord::Schema.define(version: 2019_10_20_084355) do
 
   create_table "post_comments", force: :cascade do |t|
     t.text "comment"
-    t.integer "user_id"
     t.integer "post_image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "app_id"
-    t.boolean "apprval", default: false
+    t.boolean "approval", default: false
     t.index ["app_id"], name: "index_post_comments_on_app_id"
   end
 
