@@ -1,14 +1,27 @@
 <header>
   <div class="container" style="background-color: black;">
     <nav>
-    <%= link_to admins_path do%>
-    <h2>applife管理者メニュー</h2>
-    <% end %>
+      <%= link_to admins_path do%>
+      <h2>applife管理者メニュー</h2>
+      <% end %>
+      <ul class="nav navbar-nav navbar-right">
+      <%= search_form_for @q do |f| %>
+
+        <%= f.search_field :title_or_body_cont %>
+
+        <%= f.submit %>
+      <% end %>
+      </ul>
     </nav>
     <nav>
       <ul class="nav navbar-nav navbar-left">
-          <li><%= link_to " Top ", admins_path ,:style=>"color:white;" %></li>
-          <li><%= link_to " logout ", destroy_admin_session_path, method: :delete ,:style=>"color:white;" %></li>
+          <li><%= link_to " logout ", destroy_admin_session_path, method: :delete %></li>
+          <li><%= link_to " iOS ", admins_os_category_path("iOS"), class:"category-link" %></li>
+          <li><%= link_to " macOS ", admins_os_category_path("macOS"), class:"category-link" %></li>
+          <li><%= link_to " 無料 ", admins_price_category_path("無料"), class:"category-link" %></li>
+          <li><%= link_to " 有料 ", admins_price_category_path("有料"), class:"category-link" %></li>
+          <li><%= link_to "コメントを承認する", admins_commentcheck_index_path %></li>
+          <li><%= link_to " お問い合わせ一覧", admins_contacts_path %></li>
       </ul>
     </nav>
   </div>

@@ -32,6 +32,8 @@ devise_for :users, controllers: {
     resources :contacts, only: [:index, :show, :destroy]
     post 'apps' => 'apps#create'
   resources :commentcheck, only: [:index, :show, :update]
+  get '/os_category/:category', to: 'apps#os_category', as: :os_category
+  get '/price_category/:category', to: 'apps#price_category', as: :price_category
 
   end
 end

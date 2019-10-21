@@ -35,6 +35,14 @@ class Admins::AppsController < ApplicationController
         redirect_to admins_apps_path
     end
 
+    def os_category
+        @apps = App.where(os_category: params[:category])
+    end
+
+    def price_category
+        @apps = App.where(price_category: params[:category])
+    end
+
     private
     def app_params
       params.require(:app).permit(:title, :body, :image, :os_category, :price_category)

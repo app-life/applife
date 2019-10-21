@@ -35,6 +35,6 @@ class AppsController < ApplicationController
 
     private
     def app_params
-      params.require(:app,).permit(:title, :body, :image, :genre, :price, :price_category, :os_category)
+      params.require(:app,).permit(:title, :body, :image, :price, :price_category, :os_category)
     end
 end
