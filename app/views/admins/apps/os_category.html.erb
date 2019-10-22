@@ -1,1 +1,24 @@
-aaaaaaa 
+<div class="container">
+  <% @apps.each do |app| %>
+    <div class="row">
+        <%= link_to admins_app_path(app.id) do%>
+
+          <div class="col-md-4">
+              <p><%= attachment_image_tag app, :image, :fill, 100, 100, format: 'jpeg' %></p>
+              <% unless app.price_category.blank?%>
+               <p><%= app.price_category.include?("free") ? "無料" : "有料"  %></p>
+              <% end %>
+          </div>
+
+          <div class="col-md-8">
+              <p><%= app.title%></p>
+              <p><%= app.body%></p>
+              <p><%= app.image %></p>
+              <p><%= app.os_category %></p>
+              <p><%= app.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
+          </div>
+
+        <% end %>
+    </div>
+  <% end %>
+</div>

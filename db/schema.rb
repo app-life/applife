@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_21_091716) do
+ActiveRecord::Schema.define(version: 2019_10_21_113234) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2019_10_21_091716) do
   create_table "commentchecks", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "delete_flg"
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -115,6 +116,7 @@ ActiveRecord::Schema.define(version: 2019_10_21_091716) do
     t.datetime "updated_at", null: false
     t.integer "app_id"
     t.boolean "approval", default: false
+    t.boolean "delete_flg"
     t.index ["app_id"], name: "index_post_comments_on_app_id"
   end
 

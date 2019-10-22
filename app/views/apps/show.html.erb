@@ -17,10 +17,13 @@
            <%= f.submit 'コメントする'%>
            <% end %></p>
          <% @app.post_comments.each do |comment|%>
-              <% if comment.approval == false %>
-                <p>コメント承認まちです</p>
-                <% else %>
-                <%= comment.comment%>
+
+              <% if comment.delete_flg == false %>
+                <% if comment.approval == false %>
+                  <p>コメント承認まちです</p>
+                  <% else %>
+                  <%= comment.comment%>
+                <% end %>
               <% end %>
          <% end %>
          </div>
