@@ -15,6 +15,13 @@ module Applife
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    #東京時間に変更
     config.time_zone = 'Tokyo'
+  end
+    #rack-atack gemの記述#
+  class Application < Rails::Application
+      # security
+      config.middleware.use Rack::Attack
   end
 end

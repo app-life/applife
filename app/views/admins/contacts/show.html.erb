@@ -1,1 +1,11 @@
-aaaaaa
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+
+         <p><%= @contacts.title %></p>
+         <p><%= @contacts.body %></p>
+         <p><%= link_to 'お問い合わせを削除する', admins_contact_path(@contacts), method: :delete, data: { confirm: '本当に消しますか？' } %>
+
+        </div>
+    </div>
+</div>

@@ -1,9 +1,8 @@
 class Admins::AppsController < ApplicationController
 
     def index
-        @apps = App.all
-        @q = Person.ransack(params[:q])
-        @people = @q.result(distinct: true)
+        @q = App.ransack(params[:q])
+        @app = @q.result(distinct: true)
     end
 
     def create
@@ -34,6 +33,14 @@ class Admins::AppsController < ApplicationController
         @app = App.find(params[:id])
         @app.destroy
         redirect_to admins_apps_path
+    end
+
+    def os_category
+        @apps = App.where(os_category: params[:category])
+    end
+
+    def price_category
+        @apps = App.where(price_category: params[:category])
     end
 
     private

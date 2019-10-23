@@ -1,0 +1,2 @@
+module CommentcheckHelper
+end

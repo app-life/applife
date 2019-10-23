@@ -1,0 +1,10 @@
+<div class="row">
+    <div class="col-xs-8">
+        <% if @comment.approval == true %>
+            <p>コメント承認済です</p>
+        <% else %>
+            <p><%= @comment.comment%>/<%= @comment.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
+        <%=link_to "承認する", admins_commentcheck_path,method: :put%>
+        <% end %>
+    </div>
+</div>

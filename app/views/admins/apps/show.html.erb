@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-6">
 
-         <p><%= @app.title%></p>
+         <p><%= @app.title %></p>
          <% unless @app.body.nil? %>
             <p><%= markdown(@app.body).html_safe %></p>
         <% else %>
@@ -10,7 +10,6 @@
         <% end %>
          <p><%= link_to "記事を編集する", edit_admins_app_path %></p>
          <p><%= link_to '記事を削除する', admins_app_path(@app), method: :delete, data: { confirm: '本当に消しますか？' } %>
-
         </div>
     </div>
 </div>

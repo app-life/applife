@@ -1,22 +1,54 @@
 <div class="container">
-  <% @apps.each do |app| %>
     <div class="row">
-        <%= link_to app_path(app.id) do%>
+      <div class="col-xs-10">
+        <% @apps.each do |app| %>
+          <div class="row">
+            <%= link_to app_path(app.id) do%>
 
-          <div class="col-md-4">
-              <p><%= attachment_image_tag app, :image, :fill, 100, 100, format: 'jpeg' %></p>
-              <p><%= app.price_category %></p>
-          </div>
+                <div class="col-xs-6">
+                  <p><%= attachment_image_tag app, :image, :fill, 100, 100, format: 'jpeg' %></p>
+                  <% unless app.price_category.blank?%>
+                  <p><%= app.price_category.include?("free") ? "無料" : "有料"  %></p>
+                  <% end %>
+                </div>
 
-          <div class="col-md-8">
-              <p><%= app.title%></p>
-              <p><%= app.body%></p>
-              <p><%= app.image %></p>
-              <p><%= app.os_category %></p>
-              <p><%= app.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
-          </div>
-
+                <div class="col-xs-6">
+                  <p><%= app.title%></p>
+                  <p><%= app.body%></p>
+                  <p><%= app.image %></p>
+                  <p><%= app.os_category %></p>
+                  <p><%= app.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
+                </div>
+              <% end %>
+            </div>
         <% end %>
-    </div>
-  <% end %>
+      </div>
+
+      <div class="col-xs-2">
+          <h3>PVランキング</h3>
+
+            <table>
+              <thead>
+                <tr>
+                  <th>順位</th>
+                  <th>タイトル</th>
+                  <th>値段</th>
+                  <th>閲覧数</th>
+                </tr>
+              </thead>
+
+            <tbody>
+              <% @most_viewed.each.with_index(1) do |rank, i| %>
+              <tr>
+              <td><%= "#{i}位" %></td>
+              <td><%= link_to "rank.title", app_path(rank) %></td>
+              <td><%= rank.title %></td>
+              <td><%= rank.price_category %></td>
+              <td><%= rank.impressions_count %></td>
+              </tr>
+              <% end %>
+            </tbody>
+            </table>
+      </div>
+  </div>
 </div>
