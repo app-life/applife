@@ -28,6 +28,7 @@ Rails.application.routes.draw do
 
 #管理者
   resources :admins, only: [:index]
+  resources :post_comments, only: [:create, :destroy, :update]
   namespace :admins do
     resources :apps
     resources :contacts, only: [:index, :show, :destroy]

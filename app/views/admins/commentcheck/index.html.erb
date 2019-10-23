@@ -1,18 +1,63 @@
 <div class="row">
     <div class="col-xs-8">
-        <% @comments.each do |comment|%>
-            <%= link_to admins_commentcheck_path(comment)do%>
-                <% if comment.delete_flg == false %>
-                    <p><%= comment.comment%></p>
-                    <p><%= comment.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
+                        <div class="tab_wrap">
+	                        <input id="tab1" type="radio" name="tab_btn" checked>
+	                        <input id="tab2" type="radio" name="tab_btn">
+	                    <div class="tab_area">
+		                    <label class="tab1_label" for="tab1">承認していないコメント</label>
+		                    <label class="tab2_label" for="tab2">承認済コメント</label>
+	                    </div>
 
-                        <%= form_for [comment.app, comment] do |f| %>
-                            <%= f.hidden_field :delete_flg, :value => true %>
-                            <%= f.submit 'このページから削除する' %>
-                        <% end %>
-                        <%= link_to 'コメントを削除する', admins_commentcheck_index_path, method: :delete, data: { confirm: '本当に消しますか？' } %>
-                <% end %>
-            <% end %>
-        <% end %>
+                        <div class="panel_area">
+		                <div id="panel1" class="tab_panel">
+			                <% @comments.each do |comment|%>
+                                <%= link_to admins_commentcheck_path(comment)do%>
+                                    <% if comment.approval == false %>
+                                        <% if comment.delete_flg == false %>
+                                            <p><%= comment.comment%></p>
+                                            <p><%= comment.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
+                                            <p>
+                                                <%= form_for comment,url: admins_commentcheck_path(comment) do |f| %>
+                                                    <%= f.hidden_field :approval, :value => true %>
+                                                    <%= f.submit '承認する' %>
+                                                <% end %>
+                                            </p>
+                                             <p><%#%=link_to "承認する", admins_commentcheck_path(comment),method: :put%></p>
+                                            <%= form_for [comment.app, comment] do |f| %>
+                                                <%= f.hidden_field :delete_flg, :value => true %>
+                                                <%= f.submit 'このページから削除する' %>
+                                            <% end %>
+                                            <%= link_to 'コメントを完全に削除する', admins_commentcheck_path(comment.id), method: :delete, data: { confirm: '本当に消しますか？' } %>
+                                        <% end %>
+                                    <% end %>
+                                <% end %>
+                            <% end %>
+                        </div>
+
+                        <div id="panel2" class="tab_panel">
+			                <% @comments.each do |comment|%>
+                                <%= link_to admins_commentcheck_path(comment)do%>
+                                    <% if comment.approval == true %>
+                                        <% if comment.delete_flg == false %>
+                                            <p><%= comment.comment%></p>
+                                            <p><%= comment.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
+                                            <p><%#=link_to "承認を取り消す", admins_commentcheck_path(comments),method: :put%>
+                                                <%#= form_for comment do |f| %>
+                                                <%= form_for comment ,url: admins_commentcheck_path(comment) do |f| %>
+
+                                                    <%= f.hidden_field :approval, :value => false %>
+                                                    <%= f.submit '承認を取り消す' %>
+                                                <% end %>
+                                            </p>
+                                        <% end %>
+                                    <% end %>
+                                <% end %>
+                            <% end %>
+		                </div>
+
+                        </div>
+	                    </div>
+                        </div>
+
     </div>
 </div>

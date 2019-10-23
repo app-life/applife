@@ -8,7 +8,7 @@ class PostCommentsController < ApplicationController
         redirect_to app_path(app)
     end
 
-    def edit 
+    def edit
       @app = App.find(params[:app_id])
       @post_comment = PostComment.find_by(app_id: @app.id,id: params[:id])
     end
@@ -19,9 +19,9 @@ class PostCommentsController < ApplicationController
       @post_comment = PostComment.find_by(app_id: @app.id,id: params[:id])
       @post_comment.update(post_comment_params)
       if @post_comment.save!
-       redirect_to app_path(@app)
+       redirect_to admins_commentcheck_index_path
       else
-        render :edit 
+        render :edit
       end
     end
 

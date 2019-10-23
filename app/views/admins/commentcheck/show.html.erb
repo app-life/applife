@@ -4,7 +4,7 @@
             <p>コメント承認済です</p>
         <% else %>
             <p><%= @comment.comment%>/<%= @comment.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
-        <%=link_to "承認する", admins_commentcheck_path(@comment),method: :put%>
+        <%=link_to "承認する", admins_commentcheck_path,method: :put%>
         <% end %>
     </div>
 </div>
