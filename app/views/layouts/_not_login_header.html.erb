@@ -1,28 +1,37 @@
-<header>
-  <div class="container" style="background-color: black;">
-    <nav>
-      <%= link_to admins_path do%>
-        <h2>applife</h2>
-      <% end %>
-      <ul class="nav navbar-nav navbar-right">
-        <%= search_form_for @q do |f| %>
+<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample7">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+			</button>
+      <a class="navbar-brand" href="/apps">
+				applife ʕ•̫͡•ʕ•̫͡•ʔ•̫͡•ʔ•̫͡•ʕ•̫͡•ʔ•̫͡•ʕ•̫͡•ʕ•̫͡•ʔ•̫͡•ʔ•̫͡•ʕ•̫͡•ʔ•̫͡•ʔ
+			</a>
+		</div>
 
-          <%= f.search_field :title_or_body_cont %>
-
-          <%= f.submit %>
-        <% end %>
-      </ul>
-    </nav>
-    <nav>
-      <ul class="nav navbar-nav navbar-left">
+		<div class="collapse navbar-collapse" id="navbarEexample7">
+			<ul class="nav navbar-nav">
         <li><%= link_to " TOP ", apps_path %></li>
         <li><%= link_to " about ", apps_about_path %></li>
         <li><%= link_to " iOS ", os_category_path("iOS"), class:"category-link" %></li>
         <li><%= link_to " macOS ", os_category_path("macOS"), class:"category-link" %></li>
-        <li><%= link_to " 無料 ", price_category_path("無料"), class:"category-link" %></li>
-        <li><%= link_to " 有料 ", price_category_path("有料"), class:"category-link" %></li>
+        <li><%= link_to " 無料 ", price_category_path("free"), class:"category-link" %></li>
+        <li><%= link_to " 有料 ", price_category_path("pay"), class:"category-link" %></li>
         <li><%= link_to " お問い合わせ ", new_contact_path %></li>
-      </ul>
-    </nav>
-  </div>
- </header>
+			</ul>
+			<div class="navbar-text navbar-right">
+        <%= search_form_for @q do |f| %>
+          <%= f.search_field :title_or_body_cont %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+		</div>
+	</div>
+</nav>

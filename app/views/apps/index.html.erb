@@ -28,22 +28,17 @@
           <h3>PVランキング</h3>
 
             <table>
-              <thead>
-                <tr>
-                  <th>順位</th>
-                  <th>タイトル</th>
-                  <th>値段</th>
-                  <th>閲覧数</th>
-                </tr>
-              </thead>
-
             <tbody>
               <% @most_viewed.each.with_index(1) do |rank, i| %>
               <tr>
               <td><%= "#{i}位" %></td>
+              <td><%= attachment_image_tag rank, :image, :fill, 300, 300, format: 'jpeg' %>
               <td><%= link_to "rank.title", app_path(rank) %></td>
               <td><%= rank.title %></td>
-              <td><%= rank.price_category %></td>
+              <td><% unless rank.price_category.blank?%>
+                  <p><%= rank.price_category.include?("free") ? "無料" : "有料"  %></p>
+                  <% end %>
+              </td>
               <td><%= rank.impressions_count %></td>
               </tr>
               <% end %>
