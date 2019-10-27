@@ -25,8 +25,8 @@
 
         <div class="form">
         <%= f.label :price_category, "プライス" %>
-        <label><%= f.radio_button :price_category, '無料', checked: "checked" %>無料</label>
-        <label><%= f.radio_button :price_category, '有料' %>有料</label>
+        <label><%= f.radio_button :price_category, 'free', checked: "checked" %>無料</label>
+        <label><%= f.radio_button :price_category, 'pay' %>有料</label>
         </div>
 
         <%= f.submit '記事を編集' %>
