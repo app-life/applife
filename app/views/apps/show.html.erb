@@ -1,10 +1,22 @@
+<style type="text/css">
+img{
+  width: 25%;
+  hight: 25%;
+}
+</style>
+
 <div class="container">
     <div class="row">
         <div class="col-md-6">
 
          <p><%= @app.title%></p>
         <% unless @app.body.nil? %>
-         <p><%= markdown(@app.body).html_safe %></p>
+<
+        <%= @app.body.inspect %>
+
+        <%= @app.body.gsub(/(\r\n?|\n)/,"<br>") %>
+
+         <p><%= markdown(@app.body.gsub(/(\r\n?|\n)/,"<br>").gsub("test","aaa")).html_safe %></p>
         <% else %>
          <p>記事の内容が記載されていません。</p>
         <% end %>
