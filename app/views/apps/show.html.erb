@@ -27,8 +27,11 @@ img{
         <h3>コメント一覧</h3>
         <p><%= form_for [@app, @post_comment] do |f| %>
            <%= f.text_area :comment, rows: 5, placeholder: '200文字以内で入力してください', class:"form-control" %>
-           <%= f.submit '投稿する'%>
+           <br>
+           <%= f.submit '投稿する',class: 'col-sm-12 btn btn-info' %>
            <% end %></p>
+           <br>
+           <br>
          <% @app.post_comments.each do |comment|%>
 
               <% if comment.delete_flg == false %>
