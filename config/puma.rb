@@ -52,4 +52,4 @@ stdout_redirect(
 
 # デーモン
 
-daemonize
+# daemonize

@@ -16,6 +16,7 @@ class AppsController < ApplicationController
     end
 
     def show
+        @most_viewed = App.order('impressions_count DESC').take(3)
         @app = App.find(params[:id])
         impressionist(@app, nil, :unique => [:session_hash])
         @post_comments = PostComment.all
@@ -26,10 +27,12 @@ class AppsController < ApplicationController
     end
 
     def os_category
+        @most_viewed = App.order('impressions_count DESC').take(3)
         @apps = App.where(os_category: params[:category] )
     end
 
     def price_category
+        @most_viewed = App.order('impressions_count DESC').take(3)
         @apps = App.where(price_category: params[:category])
     end
 

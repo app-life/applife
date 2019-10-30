@@ -11,9 +11,15 @@
           </div>
 
           <div class="col-md-8">
-              <p><%= app.title%></p>
-              <p><%= app.body%></p>
-              <p><%= app.image %></p>
+              <p><%= app.title.truncate(10) %></p>
+                  <% unless app.body.blank? %>
+                  <% newimage = app.body.truncate(100).split(/\R/) %>
+                              <% newimage.each do |row| %>
+
+                              <p><%= row.include?("image") ? "" : row %></p>
+
+                              <% end %>
+                  <% end %>
               <p><%= app.os_category %></p>
               <p><%= app.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
           </div>

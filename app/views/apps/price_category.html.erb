@@ -1,24 +1,24 @@
 <div class="container">
   <% @apps.each do |app| %>
     <div class="row">
-        <div class="col-xs-10" style="padding-left: 20%;">
+        <div class="col-xs-9" style="padding-left: 20%;">
             <div class="row">
         <%= link_to app_path(app.id) do%>
 
-          <div class="col-md-4">
+          <div class="col-xs-6">
               <p><%= attachment_image_tag app, :image, :fill, 100, 100, format: 'jpeg' %></p>
               <% unless app.price_category.blank?%>
                <p><%= app.price_category.include?("free") ? "無料" : "有料"  %></p>
               <% end %>
           </div>
 
-          <div class="col-md-8">
-              <p><%= app.title%></p>
+          <div class="col-xs-6">
+              <p><%= app.title.truncate(10) %></p>
               <% unless app.body.blank? %>
-              <% newimage = app.body.split(/\R/) %>
+              <% newimage = app.body.truncate(50).split(/\R/) %>
                   <% newimage.each do |row| %>
 
-                  <p><%= row.include?("refileDownloadImage") ? "" : row %></p>
+                  <p><%= row.include?("image") ? "" : row %></p>
 
                       <% end %>
                   <% end %>
@@ -29,6 +29,25 @@
         <% end %>
             </div>
         </div>
+     <% end %>
+        <div class="col-xs-3" style="padding-left: 5%;">
+          <h3>PVランキング</h3>
+
+            <table>
+            <tbody>
+              <% @most_viewed.each.with_index(1) do |rank, i| %>
+              <tr onclick="location.href='<%= app_path(rank) %>'">
+              <td>No.<%= "#{i}" %></td>
+              <td><%= attachment_image_tag rank, :image, :fill, 30, 30, format: 'jpeg' %>
+              <td><%= rank.title.truncate(10) %></td>
+              <td><% unless rank.price_category.blank?%>
+                  <%= rank.price_category.include?("free") ? "無料" : "有料"  %>
+                  <% end %>
+              </td>
+              </tr>
+              <% end %>
+            </tbody>
+            </table>
+      </div>
     </div>
-  <% end %>
 </div>

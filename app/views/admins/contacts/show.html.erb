@@ -1,11 +1,28 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
+<style>
+table{
+    width:600px;
+    table-layout: fixed;
+}
 
-         <p><%= @contacts.title %></p>
-         <p><%= @contacts.body %></p>
-         <p><%= link_to 'お問い合わせを削除する', admins_contact_path(@contacts), method: :delete, data: { confirm: '本当に消しますか？' } %>
+table tr,td{
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+</style>
 
-        </div>
-    </div>
+<div class="row" style="padding-left: 30%" >
+    <table>
+    <tbody>
+        <tr>
+        <td>・タイトル<%= @contacts.title %></td>
+        </tr>
+        <tr>
+        <td>・メール<%= @contacts.mail %></td>
+        </tr>
+        <tr>
+        <td>・内容<%= @contacts.body %></td>
+        </tr>
+    </tbody>
+    </table>
+    <%= link_to 'お問い合わせを削除する', admins_contact_path(@contacts), method: :delete, data: { confirm: '本当に消しますか？' } %>
 </div>

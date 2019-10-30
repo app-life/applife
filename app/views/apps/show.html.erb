@@ -1,32 +1,33 @@
 <style type="text/css">
 img{
-  width: 25%;
-  hight: 25%;
+  width: 100%;
 }
+
+.wrap-comment{
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
 </style>
 
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-xs-9" style="padding-left: 20%;">
 
-         <p><%= @app.title%></p>
+         <div class="show-body">
+         <h1 class="show-h1"><%= @app.title%></h1>
         <% unless @app.body.nil? %>
-<
-        <%= @app.body.inspect %>
-
-        <%= @app.body.gsub(/(\r\n?|\n)/,"<br>") %>
-
-         <p><%= markdown(@app.body.gsub(/(\r\n?|\n)/,"<br>").gsub("test","aaa")).html_safe %></p>
+         <p><%= markdown(@app.body.gsub(/(\r\n?|\n)/,"<br>")).html_safe %></p>
         <% else %>
          <p>記事の内容が記載されていません。</p>
         <% end %>
+         </div>
          <strong>閲覧数:</strong>
          <%= @app.impressions_count %>
-        </div>
-        <div>
+        <h3>コメント一覧</h3>
         <p><%= form_for [@app, @post_comment] do |f| %>
-           <%= f.text_field :comment %>
-           <%= f.submit 'コメントする'%>
+           <%= f.text_area :comment, rows: 5, placeholder: '200文字以内で入力してください', class:"form-control" %>
+           <%= f.submit '投稿する'%>
            <% end %></p>
          <% @app.post_comments.each do |comment|%>
 
@@ -34,11 +35,33 @@ img{
                 <% if comment.approval == false %>
                   <p>コメント承認まちです</p>
                   <% else %>
+                  <div class="wrap-comment">
                   <%= comment.comment%>
+                  </div>
                 <% end %>
               <% end %>
          <% end %>
-         </div>
+        </div>
 
+        <div class="col-xs-3" style="padding-left: 7%;">
+            <h3>PVランキング</h3>
+
+            <table>
+            <tbody>
+              <% @most_viewed.each.with_index(1) do |rank, i| %>
+              <tr onclick="location.href='<%= app_path(rank) %>'">
+              <td><%= "#{i}位" %></td>
+              <td><%= attachment_image_tag rank, :image, :fill, 30, 30, format: 'jpeg' %>
+              <td><%= rank.title.truncate(10) %></td>
+              <td><% unless rank.price_category.blank?%>
+                  <%= rank.price_category.include?("free") ? "無料" : "有料"  %>
+              <% end %>
+              </td>
+              </tr>
+              <% end %>
+            </tbody>
+            </table>
+            </div>
+        </div>
     </div>
 </div>

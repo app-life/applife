@@ -8,9 +8,9 @@
         </tr>
         <% @contacts.each do |contact| %>
         <tr onclick="location.href='<%= admins_contact_path(contact.id) %>'">
-            <td><%= contact.title %></td>
-            <td><%= contact.mail %></td>
-            <td><%= contact.body %></td>
+            <td><%= contact.title.truncate(10) %></td>
+            <td><%= contact.mail.truncate(10) %></td>
+            <td><%= contact.body.truncate(10) %></td>
             <td><%= contact.updated_at.strftime("%Y-%m-%d %H:%M") %></td>
         </tr>
         <% end %>
