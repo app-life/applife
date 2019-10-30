@@ -1,10 +1,16 @@
+<style type="text/css">
+.wrap-comment{
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+</style>
 <div class="row">
-    <div class="col-xs-8">
-        <% if @comment.approval == true %>
-            <p>コメント承認済です</p>
-        <% else %>
-            <p><%= @comment.comment%>/<%= @comment.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
+    <div class="col-xs-12">
+        <div class="wrap-comment">
+        <p><%= @comment.comment%>
+        </div>
+        <%= @comment.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
         <%=link_to "承認する", admins_commentcheck_path,method: :put%>
-        <% end %>
     </div>
 </div>

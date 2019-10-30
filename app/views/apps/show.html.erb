@@ -14,8 +14,8 @@ img{
     <div class="row">
         <div class="col-xs-9" style="padding-left: 20%;">
 
-         <div class="show-body">
-         <h1 class="show-h1"><%= @app.title%></h1>
+         <div>
+         <h1><%= @app.title%></h1>
         <% unless @app.body.nil? %>
          <p><%= markdown(@app.body.gsub(/(\r\n?|\n)/,"<br>")).html_safe %></p>
         <% else %>

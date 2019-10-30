@@ -2,7 +2,6 @@ class Admins::CommentcheckController < ApplicationController
 
     def index
         @comments = PostComment.all
-        # @warui_comments = PostComment.where()
     end
 
     def show
@@ -12,7 +11,7 @@ class Admins::CommentcheckController < ApplicationController
     def update
         @comment = PostComment.find(params[:id])
         @comment.update(commentcheck_params)
-        redirect_to admins_commentcheck_path(@comment) 
+        redirect_to admins_commentcheck_path(@comment)
     end
 
     def destroy
