@@ -18,7 +18,7 @@
                                             <%= comment.updated_at.strftime("%Y-%m-%d %H:%M") %>
                                         </div>
                                         <div class="col-xs-6">
-                                            <%= form_for comment,url: admins_commentcheck_path(comment) do |f| %>
+                                            <%= form_for comment,url: admins_commentcheck_path(comment), method: :patch do |f| %>
                                                 <%= f.hidden_field :approval, :value => true %>
                                                 <%= f.submit '承認する' %>
                                             <% end %>
@@ -35,7 +35,7 @@
 
                     <div id="panel2" class="tab_panel">
                         <% @comments.each do |comment|%>
-                            <%= link_to admins_commentcheck_path(comment)do%>
+                            <%= link_to admins_commentcheck_index_path(comment)do%>
                                 <% if comment.approval == true %>
                                         <div class="col-xs-6">
                                             <%= comment.comment.truncate(10) %></p>
