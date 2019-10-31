@@ -1,4 +1,5 @@
 class Admins::AppsController < ApplicationController
+    before_action :authenticate_admin!
 
     def index
         @q = App.ransack(params[:q])

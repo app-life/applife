@@ -17,4 +17,29 @@
  @import "bootstrap";
 
  body{
-    font-family: 'TsukuBRdGothic-Regular','Wawati SC','HanziPen TC','Avenir Next','Hannotate SC','Hannotate TC','Osaka',sans-serif; }
+      font-family: 'TsukuBRdGothic-Regular','Wawati SC','HanziPen TC','Avenir Next','Hannotate SC','Hannotate TC','Osaka',sans-serif; }
+
+ a {
+      color:rgb(3, 3, 0);
+      text-decoration:underline;
+}
+
+ a:link {
+      color:rgb(3, 3, 0);
+      text-decoration:underline;
+}
+
+a:visited {
+   color:rgb(3, 3, 0);
+   text-decoration:underline;
+}
+
+a:hover {
+   color:#999;
+   text-decoration:underline;
+}
+
+a:active {
+   color:#fff;
+   text-decoration:none;
+}

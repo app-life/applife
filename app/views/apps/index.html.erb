@@ -37,10 +37,10 @@
             <tbody>
               <% @most_viewed.each.with_index(1) do |rank, i| %>
               <tr onclick="location.href='<%= app_path(rank) %>'">
-              <td>No.<%= "#{i}" %></td>
-              <td><%= attachment_image_tag rank, :image, :fill, 30, 30, format: 'jpeg' %>
-              <td><%= rank.title.truncate(10) %></td>
-              <td><% unless rank.price_category.blank?%>
+              <td style="padding-bottom: 5px;">No.<%= "#{i}" %></td>
+              <td style="padding-bottom: 5px;"><%= attachment_image_tag rank, :image, :fill, 30, 30, format: 'jpeg' %>
+              <td style="padding-bottom: 5px;"><%= rank.title.truncate(10) %></td>
+              <td style="padding-bottom: 5px;"><% unless rank.price_category.blank?%>
                   <%= rank.price_category.include?("free") ? "無料" : "有料"  %>
                   <% end %>
               </td>

@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
     @apps = @q.result(distinct: true)
   end
 
+  def after_sign_up_path_for(resource)
+  	admins_apps_path(current_user)
+  end
+
   ##時間変更##
   config.time_zone = 'Tokyo'
 end
