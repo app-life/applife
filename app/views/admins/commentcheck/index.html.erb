@@ -14,15 +14,15 @@
                             <%= link_to admins_commentcheck_path(comment)do%>
                                 <% if comment.approval == false %>
                                         <div class="col-xs-6">
-                                            <%= comment.comment.truncate(10) %>
-                                            <%= comment.updated_at.strftime("%Y-%m-%d %H:%M") %>
+                                            <p><%= comment.comment.truncate(10) %></p>
+                                            <p><%= comment.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
                                         </div>
                                         <div class="col-xs-6">
                                             <%= form_for comment,url: admins_commentcheck_path(comment), method: :patch do |f| %>
                                                 <%= f.hidden_field :approval, :value => true %>
                                                 <%= f.submit '承認する' %>
                                             <% end %>
-                                            <%= link_to 'コメントを完全に削除する', admins_commentcheck_path(comment.id), method: :delete, data: { confirm: '本当に消しますか？' } %>
+                                            <%= link_to 'コメントを削除する', admins_commentcheck_path(comment.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
                                         </div>
                                         <br>
                                         <br>
@@ -35,11 +35,11 @@
 
                     <div id="panel2" class="tab_panel">
                         <% @comments.each do |comment|%>
-                            <%= link_to admins_commentcheck_index_path(comment)do%>
+                            <%= link_to admins_commentcheck_path(comment)do%>
                                 <% if comment.approval == true %>
                                         <div class="col-xs-6">
-                                            <%= comment.comment.truncate(10) %></p>
-                                            <%= comment.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
+                                            <p><%= comment.comment.truncate(10) %></p>
+                                            <p><%= comment.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
                                         </div>
                                         <div class="col-xs-6">
                                             <%= form_for comment ,url: admins_commentcheck_path(comment) do |f| %>
@@ -60,4 +60,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> 
