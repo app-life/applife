@@ -14,15 +14,19 @@ table tr,td{
     <table>
     <tbody>
         <tr>
-        <td>・タイトル<%= @contacts.title %></td>
+        <td>・タイトル<br><%= @contacts.title %></td>
         </tr>
         <tr>
-        <td>・メール<%= @contacts.mail %></td>
+        <td>・メール<br><%= @contacts.mail %></td>
         </tr>
         <tr>
-        <td>・内容<%= @contacts.body %></td>
+        <td>・内容<br><%= @contacts.body %>
+        </td>
         </tr>
     </tbody>
     </table>
-    <%= link_to 'お問い合わせを削除する', admins_contact_path(@contacts), method: :delete, data: { confirm: '本当に消しますか？' } %>
+        <br>
+        <div class="contact-botan" style="margin-bottom: 50px;">
+        <%= link_to 'お問い合わせを削除する', admins_contact_path(@contacts), method: :delete, data: { confirm: '本当に消しますか？' } %>
+        </div>
 </div>

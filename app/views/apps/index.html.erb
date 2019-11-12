@@ -15,7 +15,7 @@
                 <div class="col-xs-6">
                   <p><%= app.title.truncate(10) %></p>
                   <% unless app.body.blank? %>
-                  <% newimage = app.body.truncate(50).split(/\R/) %>
+                  <% newimage = app.body.truncate(100).split(/\R/) %>
                       <% newimage.each do |row| %>
 
                       <p><%= row.include?("image") ? "" : row %></p>

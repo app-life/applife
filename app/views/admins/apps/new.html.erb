@@ -9,27 +9,34 @@
               <%= f.attachment_field :image %>
               </div>
               <br>
+
               <div class="form">
               <%= f.label :os_category, "カテゴリー" %>
               <label><%= f.radio_button :os_category, 'iOS', checked: "checked" %>iOS</label>
               <label><%= f.radio_button :os_category, 'macOS' %>macOS</label>
               </div>
               <br>
+
               <div class="form">
               <h4>タイトル</h4>
               <%= f.text_field :title, class:"form-control" %>
               </div>
               <br>
+
               <div class="form">
               <h4>内容</h4>
-              <%= f.text_area :body, rows: 5, placeholder: '画像がドラッグで投稿できます', class:"form-control" %>
+              <%= f.text_area :body, rows: 20, placeholder: '画像がドラッグで投稿できます', class:"form-control" %>
               </div>
               <br>
+
               <div class="form">
               <%= f.label :price_category, "プライス" %>
               <label><%= f.radio_button :price_category, 'free', checked: "checked" %>無料</label>
               <label><%= f.radio_button :price_category, 'pay' %>有料</label>
               </div>
               <br>
-              <%= f.submit '記事を投稿' %>
+
+              <div class="new-botan" style="margin-bottom: 50px;">
+              <%= f.submit '記事を投稿'%>
+              </div>
        <% end %>
