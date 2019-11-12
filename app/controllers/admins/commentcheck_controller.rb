@@ -7,6 +7,7 @@ class Admins::CommentcheckController < ApplicationController
 
     def show
         @comment = PostComment.find(params[:id])
+        @comments = PostComment.all
     end
 
     def update

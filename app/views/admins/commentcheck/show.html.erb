@@ -20,9 +20,9 @@ table tr,td{
     </table>
     <br>
     <p><%= @comment.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
-    <p><%= form_for comment,url: admins_commentcheck_path(@comment), method: :patch do |f| %>
+    <p><%= form_for @comment,url: admins_commentcheck_path(@comment), method: :patch do |f| %>
        <%= f.hidden_field :approval, :value => true %>
        <%= f.submit '承認する' %>
-      <% end %></p>
+       <% end %></p>
     <p><%= link_to 'コメントを削除する', admins_commentcheck_path, method: :delete, data: { confirm: '本当に削除しますか？' } %></p>
 </div>
