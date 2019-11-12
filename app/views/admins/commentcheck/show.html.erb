@@ -19,10 +19,18 @@ table tr,td{
     </tbody>
     </table>
     <br>
-    <p><%= @comment.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
-    <p><%= form_for @comment,url: admins_commentcheck_path(@comment), method: :patch do |f| %>
-       <%= f.hidden_field :approval, :value => true %>
-       <%= f.submit '承認する' %>
-       <% end %></p>
-    <p><%= link_to 'コメントを削除する', admins_commentcheck_path, method: :delete, data: { confirm: '本当に削除しますか？' } %></p>
+        <p><%= @comment.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
+            <% if @comment.approval == false %>
+            <p><%= form_for @comment,url: admins_commentcheck_path(@comment), method: :patch do |f| %>
+               <%= f.hidden_field :approval, :value => true %>
+               <%= f.submit '承認する' %>
+               <% end %></p>
+            <p><%= link_to 'コメントを削除する', admins_commentcheck_path, method: :delete, data: { confirm: '本当に削除しますか？' } %></p>
+           <% end %>
+           <% if @comment.approval == true %>
+               <p><%= form_for @comment ,url: admins_commentcheck_path(@comment) do |f| %>
+               <%= f.hidden_field :approval, :value => false %>
+               <%= f.submit '承認を取り消す' %>
+               <% end %></p>
+           <% end %>
 </div>
