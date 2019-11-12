@@ -13,5 +13,7 @@
 - PVランキング、閲覧数機能(gem:impressionistを使用)
 
 # アプリケーション内で使用した技術
-- インフラ AWS（EC2、RDS、）
-- データベース MySQL
+- インフラ 
+ - AWS（EC2、RDS、）
+- データベース 
+ - MySQL
