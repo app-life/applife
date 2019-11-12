@@ -1,7 +1,9 @@
-# README
+# AppLife
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# アプリケーションの概要
+iOS、macOSのアプリ紹介サイト
+
+# アプリケーションの機能一覧
 
 Things you may want to cover:
 
