@@ -1,36 +1,36 @@
 <div class="container">
-  <% @apps.each do |app| %>
     <div class="row">
-        <div class="col-xs-9" style="padding-left: 20%;">
-            <div class="row">
-        <%= link_to app_path(app.id) do%>
+      <div class="col-xs-9" style="padding-left: 20%;">
+        <% @apps.each do |app| %>
+          <div class="row">
+            <%= link_to app_path(app.id) do%>
 
-          <div class="col-xs-6">
-              <p><%= attachment_image_tag app, :image, :fill, 100, 100, format: 'jpeg' %></p>
-              <% unless app.price_category.blank?%>
-               <p><%= app.price_category.include?("free") ? "無料" : "有料"  %></p>
-              <% end %>
-          </div>
+                <div class="col-xs-6">
+                  <p><%= attachment_image_tag app, :image, :fill, 100, 100, format: 'jpeg' %></p>
+                  <% unless app.price_category.blank?%>
+                  <p><%= app.price_category.include?("free") ? "無料" : "有料"  %></p>
+                  <% end %>
+                </div>
 
-          <div class="col-xs-6">
-              <p><%= app.title.truncate(10) %></p>
-              <% unless app.body.blank? %>
-              <% newimage = app.body.truncate(100).split(/\R/) %>
-                  <% newimage.each do |row| %>
+                <div class="col-xs-6">
+                  <p><%= app.title.truncate(10) %></p>
+                  <% unless app.body.blank? %>
+                  <% newimage = app.body.truncate(100).split(/\R/) %>
+                      <% newimage.each do |row| %>
 
-                  <p><%= row.include?("image") ? "" : row %></p>
+                      <p><%= row.include?("image") ? "" : row %></p>
 
                       <% end %>
                   <% end %>
-              <p><%= app.os_category %></p>
-              <p><%= app.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
-          </div>
-
-        <% end %>
+                  <p><%= app.os_category %></p>
+                  <p><%= app.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
+                </div>
+              <% end %>
             </div>
-        </div>
-     <% end %>
-        <div class="col-xs-3" style="padding-left: 5%;">
+        <% end %>
+      </div>
+
+      <div class="col-xs-3" style="padding-left: 5%;">
           <span class="glyphicon glyphicon-time" aria-hidden="true" style="font-size: 30px;"></span>
           <h3 id="RealtimeClockArea2"></h3>
           <br>
@@ -52,5 +52,5 @@
             </tbody>
             </table>
       </div>
-    </div>
+  </div>
 </div>
