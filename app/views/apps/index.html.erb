@@ -18,15 +18,15 @@
                   <% newimage = app.body.truncate(100).split(/\R/) %>
                       <% newimage.each do |row| %>
 
-                      <p><%= row.include?("image") ? "" : row %></p>
+                      <p><%= row.include?("![") ? "" : row %></p>
 
                       <% end %>
                   <% end %>
                   <p><%= app.os_category %></p>
                   <p><%= app.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
                 </div>
-              <% end %>
-            </div>
+            <% end %>
+          </div>
         <% end %>
       </div>
 
@@ -51,6 +51,7 @@
               <% end %>
             </tbody>
             </table>
+      
       </div>
   </div>
 </div>
