@@ -7,7 +7,6 @@ img{
     overflow-wrap: break-word;
     word-wrap: break-word;
 }
-
 </style>
 
 <div class="container">
@@ -28,25 +27,34 @@ img{
         <p><%= form_for [@app, @post_comment] do |f| %>
            <%= f.text_area :comment, rows: 5, placeholder: '200文字以内で入力してください', class:"form-control" %>
            <br>
+           <div class="comment-botan" style="margin-bottom: 50px;">
            <%= f.submit '投稿する',class: 'col-sm-12 btn btn-info' %>
+           </div>
            <% end %></p>
            <br>
            <br>
+         <div class="comment" style="margin-bottom: 50px;">
          <% @app.post_comments.each do |comment|%>
 
-              <% if comment.delete_flg == false %>
                 <% if comment.approval == false %>
+                  <br>
                   <p>コメント承認まちです</p>
                   <% else %>
                   <div class="wrap-comment">
+                  <br>
                   <%= comment.comment%>
+                  <br>
+                  <%= comment.updated_at.strftime("%Y-%m-%d %H:%M") %>
                   </div>
                 <% end %>
-              <% end %>
          <% end %>
+         </div>
         </div>
 
         <div class="col-xs-3" style="padding-left: 7%;">
+            <span class="glyphicon glyphicon-time" aria-hidden="true" style="font-size: 30px;"></span>
+            <h3 id="RealtimeClockArea2"></h3>
+            <br>
             <h3>PVランキング</h3>
 
             <table>
