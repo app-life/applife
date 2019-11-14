@@ -25,7 +25,8 @@ img{
          <%= @app.impressions_count %>
         <h3>コメント一覧</h3>
         <p><%= form_for [@app, @post_comment] do |f| %>
-           <%= f.text_area :comment, rows: 5, placeholder: '200文字以内で入力してください', class:"form-control" %>
+           <%= f.text_area :comment, rows: 5, onkeyup: "ShowLength(value);", placeholder: '200文字以内で入力してください', class:"form-control" %>
+           <p id="inputlength">0文字</p>
            <br>
            <div class="comment-botan" style="margin-bottom: 50px;">
            <%= f.submit '投稿する',class: 'col-sm-12 btn btn-info' %>

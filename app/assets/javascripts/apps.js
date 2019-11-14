@@ -54,4 +54,10 @@ $(document).ready(function() {
         var msg = "" + nowHour + ":" + nowMin + ":" + nowSec + "";
         document.getElementById("RealtimeClockArea2").innerHTML = msg;
      }
-     setInterval('showClock2()',1000);
+      setInterval('showClock2()',1000);
+
+
+      // コメント文字数
+      function ShowLength(str) {
+        document.getElementById("inputlength").innerHTML = str.length + "文字";
+     }
