@@ -5,16 +5,20 @@
         <%= f.label :title, 'タイトル' %>
         <%= f.text_field :title, class:"form-control" %>
     </div>
+    <br>
 
     <div class="form-group">
         <%= f.label :mail, 'メールアドレス' %>
         <%= f.text_field :mail, class:"form-control" %>
-
+    </div>
+    <br>
 
     <div class="form-group">
         <%= f.label :body, 'お問い合わせ内容' %>
-        <%= f.text_area :body, rows: 5, placeholder: '250文字以内で入力してください', class:"form-control" %>
+        <%= f.text_area :body, rows: 5, onkeyup: "ShowLength(value);", placeholder: '200文字以内で入力してください', class:"form-control" %>
+        <p id="inputlength">0文字</p>
     </div>
+    <br>
 
         <%= f.submit '送信する' %>
         <% end %>
