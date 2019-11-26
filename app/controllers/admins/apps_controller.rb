@@ -32,7 +32,7 @@ class Admins::AppsController < ApplicationController
 
     def destroy
         @app = App.find(params[:id])
-        @app.destroy
+        @apps.destroy
         redirect_to admins_apps_path
     end
 
