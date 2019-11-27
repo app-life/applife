@@ -29,7 +29,7 @@
 
             <div class="navbar-text navbar-right" style="color: black;">
             <%= search_form_for @q do |f| %>
-                <%= f.search_field :title_or_body_cont ,placeholder: 'キーワード検索...'%>
+                <%= f.search_field :title_or_body_cont ,placeholder: 'キーワード検索...' , class: 'search-space'%>
                 <%= f.submit "検索" , class: 'search-btn'%>
             <% end %>
             </div>
