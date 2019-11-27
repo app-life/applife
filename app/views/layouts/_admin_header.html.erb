@@ -26,7 +26,7 @@
         		<li><%= link_to "コメントを承認する", admins_commentcheck_index_path %></li>
         		<li><%= link_to " お問い合わせ一覧", admins_contacts_path %></li>
 			</ul>
-			<div class="navbar-text navbar-right">
+			<div class="navbar-text navbar-right" style="color: black;">
         	<%= search_form_for @q do |f| %>
           		<%= f.search_field :title_or_body_cont %>
           		<%= f.submit "検索" %>

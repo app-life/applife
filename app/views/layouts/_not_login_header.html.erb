@@ -26,7 +26,7 @@
         <li><%= link_to " 有料 ", price_category_path("pay"), class:"category-link" %></li>
         <li><%= link_to " お問い合わせ ", new_contact_path %></li>
 			</ul>
-			<div class="navbar-text navbar-right">
+			<div class="navbar-text navbar-right" style="color: black;">
         <%= search_form_for @q do |f| %>
           <%= f.search_field :title_or_body_cont %>
           <%= f.submit "検索" %>
