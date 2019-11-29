@@ -7,7 +7,7 @@
             <th>日時</th>
         </tr>
         <% @contacts.each do |contact| %>
-        <tr onclick="location.href='<%= admins_contact_path(contact.id) %>'">
+        <tr class="trhover" onclick="location.href='<%= admins_contact_path(contact.id) %>'">
             <td><%= contact.title.truncate(10) %></td>
             <td><%= contact.mail.truncate(10) %></td>
             <td><%= contact.body.truncate(10) %></td>
