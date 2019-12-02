@@ -62,7 +62,7 @@ img{
             <tbody>
               <% @most_viewed.each.with_index(1) do |rank, i| %>
               <tr class="trhover" onclick="location.href='<%= app_path(rank) %>'">
-              <td style="padding-bottom: 5px;"><%= "#{i}位" %></td>
+              <td style="padding-bottom: 5px;">No.<%= "#{i}" %></td>
               <td style="padding-bottom: 5px;"><%= attachment_image_tag rank, :image, :fill, 30, 30, format: 'jpeg' %>
               <td style="padding-bottom: 5px;"><%= rank.title.truncate(10) %></td>
               </tr>
