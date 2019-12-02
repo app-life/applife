@@ -45,10 +45,6 @@
               <td style="padding-bottom: 5px;">No.<%= "#{i}" %></td>
               <td style="padding-bottom: 5px;"><%= attachment_image_tag rank, :image, :fill, 30, 30, format: 'jpeg' %>
               <td style="padding-bottom: 5px;"><%= rank.title.truncate(10) %></td>
-              <td style="padding-bottom: 5px;"><% unless rank.price_category.blank?%>
-                  <%= rank.price_category.include?("free") ? "無料" : "有料"  %>
-                  <% end %>
-              </td>
               </tr>
               <% end %>
             </tbody>
