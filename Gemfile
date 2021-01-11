@@ -72,7 +72,7 @@ gem 'kaminari'  #ページネーション
 gem 'ransack'   #検索機能
 gem 'cocoon'
 gem 'pry-rails'
-gem 'redcarpet', '~> 2.3.0'
+gem 'redcarpet', '~> 3.5.1'
 gem 'carrierwave', '~> 1.0'
 gem 'impressionist'
 gem 'rack-attack'
