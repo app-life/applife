@@ -213,7 +213,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
-    redcarpet (2.3.0)
+    redcarpet (3.5.1)
     refile-mini_magick (0.2.0)
       mini_magick (~> 4.0)
       refile (~> 0.5)
@@ -312,7 +312,7 @@ DEPENDENCIES
   rack-attack
   rails (~> 5.2.3)
   ransack
-  redcarpet (~> 2.3.0)
+  redcarpet (~> 3.5.1)
   refile!
   refile-mini_magick
   sass-rails (~> 5.0)
